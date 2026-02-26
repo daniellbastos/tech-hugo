@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://daniellbastos.github.io/tech-hugo/'
 languageCode = 'en-us'
 title = "Daniel's Tech Blog"
 
