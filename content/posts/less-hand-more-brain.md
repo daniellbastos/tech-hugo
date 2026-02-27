@@ -44,7 +44,7 @@ I used to carry pieces of this mindset too.
 
 Then this project started.
 
-## Day zero was not code. It was language.
+## Before coding, we aligned meaning
 
 Instead of opening the editor and immediately creating components, I opened markdown files.
 
@@ -69,15 +69,11 @@ Because AI does not need only prompts. It needs context. It needs constraints. I
 
 The quality jump was immediate.
 
-## CI from the start, not as a patch later
-
-Another decision: CI running from the beginning.
-
-Not "we’ll add this when things stabilize."
-Not "let’s move fast first, then clean up."
+## Best practices from the start
 
 We included checks from day one:
 
+- CI,
 - linting,
 - tests,
 - quality gates,
@@ -177,7 +173,7 @@ Because many of our old identity markers were attached to visible manual output.
 
 Where is your real value as an engineer?
 
-## "Less hands, more brain" does not mean "without responsibility"
+## AI does things does not mean "without responsibility"
 
 Let me be clear: AI-first is not an excuse to abandon responsibility.
 
@@ -214,7 +210,7 @@ Both reactions are understandable.
 
 But only one reaction prepares you for what is already happening.
 
-The game changed.
+**The game changed.**
 
 Not tomorrow.
 Now.
@@ -265,6 +261,3 @@ And maybe this is the real shift:
 The future of software development might not belong to the developers with faster hands.
 
 It may belong to the developers who can build better systems, for people and for AI, and still take full ownership of what gets shipped.
-
-Less hands, more brain.
-But never without craft.
