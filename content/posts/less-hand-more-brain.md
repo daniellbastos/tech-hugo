@@ -1,8 +1,8 @@
 ---
-title: "Hey mama, look at me!"
+title: "less hand, more brain"
 date: 2026-02-27
 draft: false
-slug: "hey-mama-look-at-me"
+slug: "less-hand-more-brain"
 ---
 
 Recently, I started a new project.
@@ -177,7 +177,7 @@ Because many of our old identity markers were attached to visible manual output.
 
 Where is your real value as an engineer?
 
-## "Hey mama, look at me!" does not mean "without responsibility"
+## "less hand, more brain" does not mean "without responsibility"
 
 Let me be clear: AI-first is not an excuse to abandon responsibility.
 
@@ -266,5 +266,5 @@ The future of software development might not belong to the developers with faste
 
 It may belong to the developers who can build better systems, for people and for AI, and still take full ownership of what gets shipped.
 
-Hey mama, look at me!
+less hand, more brain.
 But never without craft.
