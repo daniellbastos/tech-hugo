@@ -19,7 +19,7 @@ Not AI-first as hype.
 Not AI-first as laziness.
 AI-first as engineering method.
 
-## The old reflex and the new discomfort
+## Old habits, new game
 
 Most of us learned to measure engineering value with our hands on the keyboard.
 
