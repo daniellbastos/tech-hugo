@@ -1,7 +1,8 @@
 ---
-title: "Look mom! without my hands"
+title: "Hey mama, look at me!"
 date: 2026-02-27
 draft: false
+slug: "hey-mama-look-at-me"
 ---
 
 Recently, I started a new project.
@@ -176,7 +177,7 @@ Because many of our old identity markers were attached to visible manual output.
 
 Where is your real value as an engineer?
 
-## "Look mom! without my hands" does not mean "without responsibility"
+## "Hey mama, look at me!" does not mean "without responsibility"
 
 Let me be clear: AI-first is not an excuse to abandon responsibility.
 
@@ -265,5 +266,5 @@ The future of software development might not belong to the developers with faste
 
 It may belong to the developers who can build better systems, for people and for AI, and still take full ownership of what gets shipped.
 
-Look mom! without my hands.
+Hey mama, look at me!
 But never without craft.
