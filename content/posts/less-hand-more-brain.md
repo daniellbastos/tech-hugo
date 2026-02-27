@@ -9,7 +9,7 @@ Recently, I started a new project.
 
 Nothing absurdly complex. Not a moonshot. Just a real project with real deadlines, real expectations, and a team that needs things to work.
 
-At first glance, it was a greenfield initiative, "from zero." But if we are honest, almost nothing in software is truly from zero. We had references from other projects, existing patterns, hard lessons from previous mistakes, and a company context that should not be ignored.
+At first sight, it was a greenfield initiative, "from zero." But if we are honest, almost nothing in software is truly from zero. We had references from other projects, existing patterns, hard lessons from previous mistakes, and a company context that should not be ignored.
 
 Still, it was day zero for this codebase.
 
