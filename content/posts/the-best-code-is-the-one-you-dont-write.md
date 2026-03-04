@@ -1,7 +1,7 @@
 ---
 title: "The best code is the one you don't write"
 date: 2026-03-04
-draft: true
+draft: false
 ---
 
 As software developers, our goal has always been to build good software. In the AI era, this remains true. But here is what changed: our job is not just "writing good code" anymore.
