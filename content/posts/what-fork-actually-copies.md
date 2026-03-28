@@ -1,5 +1,5 @@
 ---
-title: “What fork() Actually Copies (And What It Doesn’t)”
+title: What fork() Actually Copies
 date: 2026-03-28
 draft: false
 tags: [“python”, “celery”, “linux”, “django”, “postgresql”, “os”, “debugging”]
