@@ -18,7 +18,6 @@ Every Celery worker in production started timing out on database access. Not one
 
 I had seen database errors before. Connection resets, query timeouts, pool exhaustion under load. This was different. The workers weren’t failing to reach the database. They were failing before they even tried.
 
------
 
 ## The change that broke everything
 
@@ -38,7 +37,6 @@ Celery’s default concurrency model is prefork. It doesn’t use threads or asy
 
 That was the problem.
 
------
 
 ## What fork() actually does at the OS level
 
@@ -66,7 +64,6 @@ Child   fd=12 ──────┘
 
 PostgreSQL’s wire protocol is stateful. It expects sequential request-response pairs on a single stream. Two processes interleaving bytes on the same connection don’t produce two independent conversations. They produce garbage.
 
------
 
 ## Three things break, in three different ways
 
@@ -80,7 +77,6 @@ The connection pool, psycopg3’s `ConnectionPool`, holds three kinds of resourc
 
 The children inherited a pool that looked complete but was inert. They called `pool.getconn()`, tried to acquire the broken lock, waited 20 seconds for a notify that would never come, and timed out.
 
------
 
 ## Why it worked before
 
@@ -93,8 +89,6 @@ Before:   fork() → clean child → first query → fresh pool (correct)
 After:    pool opens → fork() → broken child → PoolTimeout
 ```
 
------
-
 ## How the incident was handled
 
 When the workers started failing, the team jumped on a call with SRE to check the connection pool. The pool metrics looked clean. No exhaustion, no errors at the database level. That was the first confusing signal: everything looked fine on the infrastructure side, but nothing was working on the application side.
@@ -105,7 +99,6 @@ That’s when I started digging. The revert gave us stability, but not understan
 
 I spent the rest of the day tracing the chain: the flag, `AppConfig.ready()`, the ORM queries, the pool, and finally `fork()`. By end of day the pull request was ready.
 
------
 
 ## The proposed solution
 
@@ -126,7 +119,6 @@ The principle is clear: never hold open connections before `fork()`, or explicit
 
 The pull request is open. The team will review it, test it exhaustively in staging, and verify it actually resolves the problem before anything goes to production. The revert is holding. There is no urgency to ship something that hasn’t been properly validated.
 
------
 
 I’ve thought about what made this hard to see. The code change that triggered it was correct. The signals needed to register. The flag made sense. The ORM queries in `ready()` were harmless in isolation.
 
@@ -138,7 +130,6 @@ The real learning here isn’t the fix. It’s understanding why the pool broke 
 
 The diagrams below show the full picture: the state of the pool and the workers before and after the bug was introduced, and what the proposed solution restores.
 
------
 
 ## Diagrams: the state before and after
 
