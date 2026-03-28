@@ -1,10 +1,10 @@
---
+---
 title: “What fork() Actually Copies (And What It Doesn’t)”
 date: 2026-03-28
 draft: false
 tags: [“python”, “celery”, “linux”, “django”, “postgresql”, “os”, “debugging”]
 description: “A configuration flag changed. A boolean. The side effect opened a database connection pool before fork() and took down every Celery worker in production. This is an account of the investigation, the OS internals behind it, and a proposed solution still waiting for staging validation.”
---
+---
 
 Shallow changes can have consequences at the bottom of the ocean. This post is an account of something that happened to me recently, and the story is still open. The services are stable, the revert held, and a pull request is sitting there waiting for the team to review. The proposed solution makes sense on paper. Whether it fully solves the problem in practice is something we’ll only know after thorough testing in staging next week.
 
