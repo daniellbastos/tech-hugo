@@ -11,7 +11,7 @@ Adam Johnson released a new library recently called [profiling-explorer](https:/
 Looking at it triggered a question that had nothing to do with the tool itself. What's actually in there the `.pstats` files? How it gets produced. What it means when `cumtime` on a function is 20 times larger than `tottime`.
 The tool was the rock. The investigation was the wave.
 
-A `.pstats` file is a marshal-serialized dict, the same binary format `CPython` uses internally for `.pyc` files. Each key is a (filename, lineno, funcname) tuple. Each value is (cc, nc, tt, ct, callers): primitive call count, total call count, total time, cumulative time, and a dict mapping every caller to its own per-caller timing breakdown[0]. Every function recorded in the profile already knows who called it and how much time each caller contributed.
+A `.pstats` file is a marshal-serialized dict, the same binary format `CPython` uses internally for `.pyc` files. Each key is a (filename, lineno, funcname) tuple. Each value is (cc, nc, tt, ct, callers): primitive call count, total call count, total time, cumulative time, and a dict mapping every caller to its own per-caller timing breakdown[^0]. Every function recorded in the profile already knows who called it and how much time each caller contributed.
 
 `cProfile` produces this by hooking into `CPython` through `PyEval_SetProfile()` and the interpreter checks it on every `CALL` and `RETURN` event. But the trace of the execution time it's not linear as we wonder at the first time. It does not stop when the GIL is released. That's the part that matters most, and it's not visible in any profiler output.
 
@@ -74,10 +74,9 @@ Reading about `profiling-explorer` was the entry point. But looking at what the 
 
 Going deeper was not the plan when the tab opened. It rarely is. The tool is good. The question it triggered was better.
 
----
-[0]
-- cc / nc: primitive call count vs total calls (differ only with recursion)
-- tt / tottime: time inside the function, GIL held, no sub-calls
-- ct / cumtime: wall-clock from entry to return, everything included
-- percall: appears twice — tt/ncalls and ct/ncalls
-- callers: dict mapping each caller to its own timing breakdown
+
+[^0]: - cc / nc: primitive call count vs total calls (differ only with recursion)
+    - tt / tottime: time inside the function, GIL held, no sub-calls
+    - ct / cumtime: wall-clock from entry to return, everything included
+    - percall: appears twice — tt/ncalls and ct/ncalls
+    - callers: dict mapping each caller to its own timing breakdown
