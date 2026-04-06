@@ -3,6 +3,8 @@ title: "Less hands, more brain"
 date: 2026-02-27
 draft: false
 slug: "less-hand-more-brain"
+description: "How leading a greenfield project AI-first. The business rules documents, automated quality gates, and living documentation, changed what it means to add value as an engineer."
+tags: ["ai", "engineering", "productivity", "documentation", "workflow"]
 ---
 
 Recently, I started a new project.

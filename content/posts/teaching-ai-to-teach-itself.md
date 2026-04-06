@@ -1,7 +1,9 @@
 ---
-title: "Teaching AI to Teach Itself: Why Configuration Beats Correction"
+title: "Teaching AI to teach itself: Why configuration beats correction"
 date: 2026-03-05
 draft: false
+description: "Correcting AI mistakes one prompt at a time is exhausting and doesn't scale. The better approach: let the agent fix its own mistakes and update its own configuration."
+tags: ["ai", "workflow", "agents", "configuration", "engineering"]
 ---
 
 I spent weeks fighting with AI agents, giving detailed prompts every single time. "Write good commit messages. Add proper tests. Follow the project structure." Over and over.

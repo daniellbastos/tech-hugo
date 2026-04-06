@@ -2,6 +2,8 @@
 title: "Dev x AI: between rejection and excitement"
 date: 2026-02-26
 draft: false
+description: "Two honest feelings most developers have about AI: rejection and excitement. Why only one of them prepares you for what is already happening."
+tags: ["ai", "career", "engineering", "mindset"]
 ---
 
 From one developer to another, if I ignore the content bubble that needs to surf every "new summer trend," I see two very clear feelings when the topic is AI: rejection and excitement.

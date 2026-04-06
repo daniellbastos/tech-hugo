@@ -2,6 +2,8 @@
 title: "The best code is the one you don't write"
 date: 2026-03-04
 draft: false
+description: "The role of software engineers is shifting from writing code to defining how good code gets built."
+tags: ["ai", "engineering", "documentation", "architecture", "career"]
 ---
 
 As software developers, our goal has always been to build good software. In the AI era, this remains true. But here is what changed: our job is not just "writing good code" anymore.
