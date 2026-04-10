@@ -7,7 +7,7 @@ tags: ["database", "system r", "storage", "relational database", "management sys
 ---
 
 
-> This post is a study dump. I've been reading [Access Path Selection in a Relational Database Management System (Selinger et al., 1979)](https://courses.cs.duke.edu/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf) and stopped at chapter 3 to consolidate what I learned. I used Claude to go deeper on the examples and make the concepts more concrete.
+> This post is a study dump. I've been reading [Access Path Selection in a Relational Database Management System (Selinger et al., 1979)](https://courses.cs.duke.edu/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf) and stopped at chapter 3 to consolidate what I learned. I used available internet resource and tools to go deeper on the examples and make the concepts more concrete.
 
 ## What the paper covers
 
@@ -19,7 +19,7 @@ I've read through chapter 3, which covers the processing pipeline for SQL statem
 
 ## How data is physically stored
 
-The RSS organizes data in 4KB pages. Pages are grouped into segments. A segment can contain multiple tables, and tuples from different tables can live on the same page. Each tuple carries a tag identifying which table it belongs to.
+The RSS (Research Storage System) organizes data in 4KB pages. Pages are grouped into segments. A segment can contain multiple tables, and tuples from different tables can live on the same page. Each tuple carries a tag identifying which table it belongs to.
 
 ### Base table
 
@@ -90,7 +90,7 @@ INDEX (SALARY)
         +-----> linked <---------+
 ```
 
-The index itself does not return data. It returns tids. For each tid, the RSS fetches the tuple from the data page. The scan only visits entries that satisfy the predicate — unlike the segment scan, it never touches tuples that fall outside the index range.
+The index itself does not return data. It returns tids. For each tid, the RSS fetches the tuple from the data page. The scan only visits entries that satisfy the predicate, unlike the segment scan, it never touches tuples that fall outside the index range.
 
 ```
 SELECT * FROM EMP WHERE SALARY > 10000
@@ -164,9 +164,9 @@ Buffer pool (RAM)
 Difference: 50,000 to 150,000x
 ```
 
-A disk page fetch costs between 5 and 15ms. A buffer hit costs 100 nanoseconds. That gap — 50,000 to 150,000x — is what the optimizer is actually managing.
+A disk page fetch costs between 5 and 15ms. A buffer hit costs 100 nanoseconds. That gap, 50,000 to 150,000x, is what the optimizer is actually managing.
 
-A non-clustered index with low selectivity generates random page fetches. Each tid points somewhere different. The disk arm moves. With high selectivity that's fine — few tids, few pages. With low selectivity, the segment scan wins: it reads pages in order, and sequential reads on magnetic disk are a different beast entirely.
+A non-clustered index with low selectivity generates random page fetches. Each tid points somewhere different. The disk arm moves. With high selectivity that's fine. Few tids, few pages. With low selectivity, the segment scan wins: it reads pages in order, and sequential reads on magnetic disk are a different beast entirely.
 
 SSD narrows the gap between random and sequential, but the difference between RAM and SSD is still ~1000x. The problem remains.
 
@@ -250,7 +250,7 @@ DISK -> buffer (4KB) -> tuple (428B) -> projection (8B) -> you
 
 ## What does not matter in PostgreSQL
 
-Two things that intuition suggests matter but don't. PostgreSQL uses a slot directory in the page header with offsets for each field, so access to any column is direct — reordering columns changes nothing. And CHAR is not faster than VARCHAR: PostgreSQL stores CHAR with padding to the fixed size, which means it occupies more space for short content with no access benefit.
+Two things that intuition suggests matter but don't. PostgreSQL uses a slot directory in the page header with offsets for each field, so access to any column is direct, reordering columns changes nothing. And CHAR is not faster than VARCHAR: PostgreSQL stores CHAR with padding to the fixed size, which means it occupies more space for short content with no access benefit.
 
 ```
 CHAR(10) storing "Jo"
@@ -279,7 +279,7 @@ WRITE with 3 indexes:
   4 write operations
 ```
 
-UPDATE in PostgreSQL creates a new tuple version via MVCC, marks the old one as a dead tuple, and updates indexes on modified columns.
+UPDATE in PostgreSQL creates a new tuple version via MVCC (Multiversion Concurrency Control), marks the old one as a dead tuple, and updates indexes on modified columns.
 
 ## Dead tuples and VACUUM
 
@@ -334,7 +334,7 @@ The only cost is discipline at schema design time.
 
 Covering indexes go further: an index that includes all columns a query
 needs eliminates access to data pages entirely. The RSS satisfies the
-query using only index pages. The trade-off is real — the index is
+query using only index pages. The trade-off is real, the index is
 larger, writes get slower.
 
 VACUUM matters more than most people assume. Dead tuples accumulate
