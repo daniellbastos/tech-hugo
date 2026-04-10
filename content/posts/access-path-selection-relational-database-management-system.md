@@ -151,24 +151,9 @@ INDEX: navigates to SALARY > 10000
 
 ## The real cost: page fetch
 
-```
-Magnetic disk (HDD)
-  seek time:            3-10ms
-  rotational latency:   2-5ms
-  transfer (4KB):       ~0.1ms
-  total per page fetch: 5-15ms
+A disk page fetch is orders of magnitude slower than reading from the buffer. That gap is what the optimizer is actually managing.
 
-Buffer pool (RAM)
-  access:               ~100ns (0.0001ms)
-
-Difference: 50,000 to 150,000x
-```
-
-A disk page fetch costs between 5 and 15ms. A buffer hit costs 100 nanoseconds. That gap, 50,000 to 150,000x, is what the optimizer is actually managing.
-
-A non-clustered index with low selectivity generates random page fetches. Each tid points somewhere different. The disk arm moves. With high selectivity that's fine. Few tids, few pages. With low selectivity, the segment scan wins: it reads pages in order, and sequential reads on magnetic disk are a different beast entirely.
-
-SSD narrows the gap between random and sequential, but the difference between RAM and SSD is still ~1000x. The problem remains.
+A non-clustered index with low selectivity generates random page fetches. Each tid points somewhere different. The disk arm moves. With high selectivity that's fine - few tids, few pages. With low selectivity, the segment scan wins: it reads pages in order, and sequential reads on magnetic disk are a different beast entirely.
 
 ## Tuple size and tuples per page
 
@@ -246,20 +231,6 @@ DISK -> buffer (4KB) -> tuple (428B) -> projection (8B) -> you
                     NAME and NOTES enter the buffer
                     and are discarded.
                     The transport cost has already been paid.
-```
-
-## What does not matter in PostgreSQL
-
-Two things that intuition suggests matter but don't. PostgreSQL uses a slot directory in the page header with offsets for each field, so access to any column is direct, reordering columns changes nothing. And CHAR is not faster than VARCHAR: PostgreSQL stores CHAR with padding to the fixed size, which means it occupies more space for short content with no access benefit.
-
-```
-CHAR(10) storing "Jo"
-  stores: "Jo        " (8 spaces of padding)
-  occupies: 10 bytes always
-
-VARCHAR(10) storing "Jo"
-  stores: "Jo"
-  occupies: 3 bytes (2 content + 1 header)
 ```
 
 ## Indexes: write maintenance cost
