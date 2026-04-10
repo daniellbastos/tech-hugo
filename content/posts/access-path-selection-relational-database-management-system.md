@@ -7,7 +7,7 @@ tags: ["database", "system r", "storage", "relational database", "management sys
 ---
 
 
-> This post is a study dump. I've been reading [Access Path Selection in a Relational Database Management System (Selinger et al., 1979)](/media/selinger-etal-1979.pdf) and stopped at chapter 3 to consolidate what I learned. I used Claude to go deeper on the examples and make the concepts more concrete.
+> This post is a study dump. I've been reading [Access Path Selection in a Relational Database Management System (Selinger et al., 1979)](https://courses.cs.duke.edu/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf) and stopped at chapter 3 to consolidate what I learned. I used Claude to go deeper on the examples and make the concepts more concrete.
 
 ## What the paper covers
 
