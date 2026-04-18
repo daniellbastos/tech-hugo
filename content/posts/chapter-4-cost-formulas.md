@@ -1,7 +1,7 @@
 ---
 
 title: "Access Path Selection in a Relational Database Management System - Chapter 4: Cost Formulas"
-date: 2026-04-18
+date: 2026-04-17
 draft: false
 description: "This post continues the study of 'Access Path Selection in a Relational Database Management System' (Selinger et al., 1979), now covering chapter 4 and the cost formulas the optimizer uses to compare access paths for a single relation."
 tags: ["database", "system r", "query optimizer", "cost formulas", "relational database", "postgresql"]
