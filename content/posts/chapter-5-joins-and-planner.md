@@ -5,7 +5,6 @@ date: 2026-04-18
 draft: false
 description: “This post continues the study of ‘Access Path Selection in a Relational Database Management System’ (Selinger et al., 1979), now covering chapter 5 and how the optimizer handles joins. PostgreSQL uses hash join most often, which the 1979 paper doesn’t describe.”
 tags: [“database”, “system r”, “joins”, “query planner”, “explain analyze”, “postgresql”]
-
 ---
 
 > This post continues the study of [Access Path Selection in a Relational Database Management System (Selinger et al., 1979)](https://courses.cs.duke.edu/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf), now covering chapter 5. I used available internet resources and tools to go deeper on the examples and make the concepts more concrete.
