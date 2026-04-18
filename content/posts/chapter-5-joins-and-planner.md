@@ -1,4 +1,5 @@
 ---
+
 title: “Access Path Selection in a Relational Database Management System - Chapter 5: Joins and the Planner”
 date: 2026-04-18
 draft: false
