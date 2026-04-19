@@ -1,6 +1,6 @@
 ---
 
-## title: "Access Path Selection in a Relational Database Management System - Chapters 6 and 7: Nested Queries"
+title: "Access Path Selection in a Relational Database Management System - Chapters 6 and 7: Nested Queries"
 date: 2026-04-19
 draft: false
 description: "This post closes the study of Selinger et al. (1979), covering nested queries. Whether a subquery references columns from the outer query determines if it runs once or thousands of times."
