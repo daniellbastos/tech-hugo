@@ -35,7 +35,6 @@ The subquery `SELECT AVG(salary) FROM employee` does not reference any column fr
 3. Run the outer query with that fixed value
 ```
 
-The second example uses IN:
 
 ```sql
 SELECT name
@@ -47,7 +46,7 @@ WHERE department_number IN (
 )
 ```
 
-Same property: the subquery does not reference `employee`. The optimizer evaluates it first, produces a list of values, and the outer query runs against that list. The paper describes this result as a temporary list — an internal structure accessed sequentially, more efficient than a full relation.
+The subquery does not reference `employee`. The optimizer evaluates it first, produces a list of values, and the outer query runs against that list. The paper describes this result as a temporary list — an internal structure accessed sequentially, more efficient than a full relation.
 
 ## Correlation subquery: evaluated N times
 
