@@ -1,5 +1,4 @@
 ---
-
 title: "Access Path Selection in a Relational Database Management System - Chapter 4: Cost Formulas"
 date: 2026-04-17
 draft: false

@@ -1,5 +1,4 @@
 ---
-
 title: "Access Path Selection in a Relational Database Management System - Chapters 6 and 7: Nested Queries"
 date: 2026-04-19
 draft: false
