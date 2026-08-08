@@ -1,7 +1,7 @@
 ---
 title: "A Study Log: SQLite Internals"
 date: 2026-08-08
-draft: true
+draft: false
 description: "This is a raw dump of my SQLite internals study log: source-code-first, Socratic Q&A, every claim traced to a specific file and line, with PostgreSQL used as a comparative reference throughout. Posting it as-is, unedited."
 tags: ["database", "sqlite", "internals", "wal", "study-log"]
 ---
