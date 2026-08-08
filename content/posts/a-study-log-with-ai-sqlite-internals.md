@@ -1,10 +1,13 @@
 ---
-title: "A Study Log: SQLite Internals"
+title: "A Study Log with AI: SQLite Internals"
 date: 2026-08-08
 draft: false
-description: "This is a raw dump of my SQLite internals study log: source-code-first, Socratic Q&A, every claim traced to a specific file and line, with PostgreSQL used as a comparative reference throughout. Posting it as-is, unedited."
-tags: ["database", "sqlite", "internals", "wal", "study-log"]
+description: "This is a raw dump of my SQLite internals study log with AI: source-code-first, Socratic Q&A, every claim traced to a specific file and line, with PostgreSQL used as a comparative reference throughout. Posting it as-is, unedited."
+tags: ["database", "sqlite", "internals", "wal", "study-log", “ai-written”]
 ---
+
+> **Note:** This is not a blog post. It’s only a dump of study with AI. If you don’t like to read AI-written, skip it.
+
 
 ## How This Works
 
@@ -39,10 +42,6 @@ tags: ["database", "sqlite", "internals", "wal", "study-log"]
 | `src/os_unix.c` | 8,582 lines | OS/VFS layer (POSIX); file locking lives here |
 | `src/os.h` | — | Lock state constants (`NO_LOCK`..`EXCLUSIVE_LOCK`) + semantics |
 | `src/main.c` | — | Top-level programmer interface (`sqlite3_open`, etc.) |
-
-> **Note:** This sandbox environment resets between conversations. The git clone at `/home/claude/sqlite` will **not** persist to a new session. Re-clone with the command above at the start of a new conversation before continuing the code walkthrough.
-
-**Context:** Daniel is a software engineer (Python/Django/Postgres/Celery/K8s background) doing a deep-dive into SQLite internals as part of a broader Linux/Unix + database internals self-study track. Comparisons to PostgreSQL internals are useful and welcome throughout.
 
 ---
 
