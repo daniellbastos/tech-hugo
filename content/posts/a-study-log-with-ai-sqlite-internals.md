@@ -1,7 +1,7 @@
 ---
 title: "A Study Log with AI: SQLite Internals"
 date: 2026-08-08
-draft: false
+draft: true
 description: "This is a raw dump of my SQLite internals study log with AI: source-code-first, Socratic Q&A, every claim traced to a specific file and line, with PostgreSQL used as a comparative reference throughout. Posting it as-is, unedited."
 tags: ["database", "sqlite", "internals", "wal", "study-log", “ai-written”]
 ---
