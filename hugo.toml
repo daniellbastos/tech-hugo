@@ -4,6 +4,7 @@ title = "Daniel's Tech Blog"
 
 [params]
   description = "Personal tech notes, experiments, and lessons learned"
+  footer = "&copy; Daniel Bastos - {Year} | [LinkedIn](https://www.linkedin.com/in/daniellbastos) | [X](https://x.com/daniellbastos)"
 
 [services]
   [services.googleAnalytics]

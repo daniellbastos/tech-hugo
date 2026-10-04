@@ -1,3 +1,13 @@
 {{ with (.Description | default .Site.Params.description) }}
 <meta name="description" content="{{ . }}">
 {{ end }}
+<style>
+.article-meta, .menu a {
+  background: transparent;
+  font-weight: 600;
+  text-decoration: underline;
+}
+nav ul.menu li:not(:last-child)::after {
+  content: " | ";
+}
+</style>
