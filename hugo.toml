@@ -5,6 +5,10 @@ title = "Daniel's Tech Blog"
 [params]
   description = "Personal tech notes, experiments, and lessons learned"
 
+[services]
+  [services.googleAnalytics]
+    ID = 'G-1704WWS3JW'
+
 [[menu.main]]
   name = "Home"
   url = "/"
@@ -16,12 +20,7 @@ title = "Daniel's Tech Blog"
   weight = 2
 
 [[menu.main]]
-  name = "Tags"
-  url = "/tags/"
-  weight = 3
-
-[[menu.main]]
-  name = "Subscribe"
+  name = "RSS"
   url = "/index.xml"
   weight = 4
 
