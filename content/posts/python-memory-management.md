@@ -7,7 +7,7 @@ tags: ["python", "cpython", "python internals", "memory management", "garbage co
 
 For a long time, memory management in Python wasn't something I worried about while implementing things. It still isn't causing me any problems at work, but I became very interested in understanding it.
 
-The starting point was the talk [Strong ref, weakref and garbage collector walk into a bar](https://www.youtube.com/watch?v=wIC4S9awFa8&t=11942s). Reference counting, gen0, gen1 and gen2: all of it made a lot of sense once I got it, but I felt like I was putting on my pants before my underpants. So I took a step back and before learning how Python frees memory, I need to understand how it allocates it.
+The starting point was the talk [Strong ref, weakref and garbage collector walk into a bar](https://www.youtube.com/watch?v=wIC4S9awFa8&t=11942s). Reference counting, gen0, gen1 and gen2: all of it made a lot of sense once I got it, but I felt like I was putting on my pants before my underpants. So I took a step back and before learning how Python frees memory, I needed to understand how it allocates it.
 
 I went down a rabbit hole that I thought would never end. I'm still in it. But I managed to put my head out to take a breath and write something, to make things clear to myself before going deeper.
 
