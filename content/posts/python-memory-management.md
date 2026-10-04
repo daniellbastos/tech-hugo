@@ -14,7 +14,7 @@ I went down a rabbit hole that I thought would never end. I'm still in it. But I
 > ### Disclaimer:
 > I'll talk about my studies on this topic, using CPython 3.12. I may not be 100% accurate because this is a brain dump on paper.
 
-In Python, we have two way to allocate memory, it's based on the object's size, `pymalloc` for small objects (≤512 bytes) and `malloc` (`PyMem_RawMalloc`) for the big ones.
+In Python, we have two ways to allocate memory, it's based on the object's size, `pymalloc` for small objects (≤512 bytes) and `malloc` (`PyMem_RawMalloc`) for the big ones.
 
 Starting with small objects (`pymalloc`): when the process needs space for a new object and has none available, `pymalloc` asks the OS for a big chunk of memory called an arena. Each arena is divided into 64 pools, and each pool is divided into blocks of the same size.
 
@@ -61,5 +61,7 @@ foo()               # x and y are gone: A = 1, B = 1
 
 ---
 
-I've had fun and learned a lot while studing Python Internals. Many those things are hard to put in words, because when you open the door to understand memory management, there you face another door about how the OS handles the memory allocation, or how Python made free-threading possible, or how the interpreter executes your code, and so on.
+That's not as deep as I went, but it's enough to get some insights: you don't have full control over freed memory, because the allocator decides what goes back to the OS, but you can control how long a reference lives. A local variable that points to a big object keeps it alive until the function returns. If the function still has work to do after using it, you can `del` it, or pass it directly to the next call, like `summarize(load_file())`. Then it's freed as soon as that call returns.
+
+I've had fun and learned a lot while studying Python Internals. Many of those things are hard to put into words, because when you open the door to understand memory management, there you face another door about how the OS handles the memory allocation, or how Python made free-threading possible, or how the interpreter executes your code, and so on.
 It's an enjoyable adventure, and I feel bad I didn't start it sooner.
