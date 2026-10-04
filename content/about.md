@@ -1,6 +1,5 @@
 ---
 title: "About"
-date: 2026-04-06
 ---
 
 Over 15 years building systems, mostly in Python.  
