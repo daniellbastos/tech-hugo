@@ -1,6 +1,7 @@
 {{ with (.Description | default .Site.Params.description) }}
 <meta name="description" content="{{ . }}">
 {{ end }}
+{{ template "_internal/google_analytics.html" . }}
 <style>
 .article-meta, .menu a {
   background: transparent;
