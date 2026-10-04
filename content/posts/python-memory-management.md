@@ -59,7 +59,6 @@ foo()               # x and y are gone: A = 1, B = 1
                     # the next gen0 collection finds A and B unreachable and frees both
 ```
 
----
 
 That's not as deep as I went, but it's enough to get some insights: you don't have full control over freed memory, because the allocator decides what goes back to the OS, but you can control how long a reference lives. A local variable that points to a big object keeps it alive until the function returns. If the function still has work to do after using it, you can `del` it, or pass it directly to the next call, like `summarize(load_file())`. Then it's freed as soon as that call returns.
 

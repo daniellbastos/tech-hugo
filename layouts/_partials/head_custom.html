@@ -3,12 +3,78 @@
 {{ end }}
 {{ template "_internal/google_analytics.html" . }}
 <style>
+
+body {
+  color: #333;
+}
+a, a:visited {
+  color: #222;
+}
+nav ul.menu li:not(:last-child)::after {
+  content: " | ";
+}
+blockquote {
+    margin: 0;
+}
+.site-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.5em;
+}
+.site-logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  justify-self: start;
+  font-size: 22px;
+}
+.site-nav .menu {
+  grid-column: 2;
+  margin: 0;
+}
+.site-nav-spacer {
+  grid-column: 3;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  gap: 0.5em;
+}
+.pagination .page-item {
+  display: inline-block;
+}
+.pagination .page-link {
+  text-decoration: underline;
+}
+.pagination .page-item.active .page-link {
+  text-decoration: none;
+}
+.pagination .page-item.disabled .page-link {
+  color: #aaa;
+}
 .article-meta, .menu a {
   background: transparent;
   font-weight: 600;
   text-decoration: underline;
 }
-nav ul.menu li:not(:last-child)::after {
-  content: " | ";
+.list-posts {
+  padding-left: 0;
+}
+.list-posts li {
+  margin-bottom: 8px;
+  list-style: none;
+}
+@media (max-width: 600px) {
+  .site-logo {
+    width: 140px;
+  }
+}
+.list-posts .date {
+    font-size: 14px;
+    font-weight: 600;
 }
 </style>

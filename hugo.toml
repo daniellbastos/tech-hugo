@@ -6,6 +6,9 @@ title = "Daniel's Tech Blog"
   description = "Personal tech notes, experiments, and lessons learned"
   footer = "&copy; Daniel Bastos - {Year} | [LinkedIn](https://www.linkedin.com/in/daniellbastos) | [X](https://x.com/daniellbastos)"
 
+[pagination]
+  pagerSize = 5
+
 [services]
   [services.googleAnalytics]
     ID = 'G-1704WWS3JW'
