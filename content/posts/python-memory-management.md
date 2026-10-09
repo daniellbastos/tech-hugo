@@ -2,6 +2,7 @@
 title: "First Steps into Memory Management in Python"
 date: 2026-10-04
 draft: false
+series: ["Python internals"]
 tags: ["python", "cpython", "python internals", "memory management", "garbage collector", "reference counting"]
 ---
 
