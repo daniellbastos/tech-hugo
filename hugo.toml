@@ -28,6 +28,9 @@ title = "Daniel's Tech Blog"
   url = "/index.xml"
   weight = 4
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [module]
   [[module.imports]]
     path = "github.com/yihui/hugo-xmin"

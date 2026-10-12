@@ -54,7 +54,12 @@ ignore me
 The `f_back` of `foo` has the same address as the module frame, `0xffff8a03d080`. Inside `foo`, `f_locals` has only `x` and `d`. The `b` that `foo` prints comes from `f_globals`.
 Nothing is new here, but it explains a bit how these things work behind the scenes.
 
-To make it a little bit more fun, and to connect with memory management theme, I created a small class that allocates a known amount of memory to be used in the next examples to illustrate how long objects live.
+To see this visually, here is a simplified version of the same example, running step by step in [Python Tutor](https://pythontutor.com). You can see the global frame, the frame created when `foo` is called, where `x` and `d` live, and how the `foo` frame disappears once the function returns.
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%2010%0Ab%20%3D%20%22ignore%20me%22%0A%0Adef%20foo%28x%29%3A%0A%20%20%20%20d%20%3D%20x%20%2B%2032%0A%20%20%20%20print%28b%29%0A%20%20%20%20return%20d%0A%0Aprint%28foo%28a%29%29&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=311"> </iframe>
+
+---
+Following and making it a little bit more fun, and to connect with memory management theme, I created a small class that allocates a known amount of memory to be used in the next examples to illustrate how long objects live.
 
 ```python
 import os
